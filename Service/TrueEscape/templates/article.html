@@ -1,0 +1,19 @@
+{% extends "./base.html"  %}
+
+{% block title %}
+	Escape Note - 文章內容
+{% endblock %} 
+
+{% block page_content %}
+	<body>
+		<h2>{{article["title"]}}</h2>
+		<h3>{{article["project_name"]}} <small>{{article["studio"]}}</small></h3>
+		<p>Author: {{article["author"]}}</p>
+		<p class="lead">{{article["content"]}}</p> 
+		<p class="text-right">最後更新 at {{article["update_time"]}} </p>
+
+
+	</body>
+	
+{% endblock %}
+

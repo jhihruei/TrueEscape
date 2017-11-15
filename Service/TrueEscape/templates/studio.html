@@ -1,0 +1,39 @@
+{% extends "./base.html" %} 
+
+{% block title %}
+	Escape Note - 工作室列表
+{% endblock %} 
+
+{% block navbar %}
+	<li><a href="{{ url_for('latest') }}">最新評價</a></li>
+    <li class="active"><a href="{{ url_for('studio') }}">工作室列表</a></li>
+{% endblock %} 
+
+{% block page_content %}
+	<table class="table">
+		<thead>
+			<tr>
+				<td>地區</td>
+				<td>工作室名稱</td>
+				<td>粉絲專頁</td>
+				<td>評價</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for studio in studioInfo %}
+				<tr>
+					<td>{{studio['city']}}</td>
+					<td>{{studio["name"]}} </td>
+					<td>FB:<a href="https://www.facebook.com/{{studio['facebook']}}">{{studio['name']}}</a></td>
+					<td>
+						{% if studio['rated'] != '0'%}
+							{{studio["rating"]}} ({{studio['rated']}})
+						{% else %}
+							未有評價
+						{% endif %}
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

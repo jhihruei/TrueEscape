@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant-Tw">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Escape Note{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--link rel="author" href="humans.txt">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse" role="navigation">
+        <div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('index')}}">Escape Note</a>
+            </div>
+            <div class="collapse navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    {% block navbar %}
+                    <li><a href="{{ url_for('latest') }}">最新評價</a></li>
+                    <li><a href="{{ url_for('studio') }}">工作室資訊</a></li>
+                    {% endblock %}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ url_for('login') }}">登入</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	{% block content %}
+	<div class="container" style="padding-top:70px;">
+		{% block page_content %}
+
+        {% endblock %}
+	</div>
+	{% endblock %}
+</body>
+</html>
+

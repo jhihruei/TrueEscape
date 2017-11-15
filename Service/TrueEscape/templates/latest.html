@@ -1,0 +1,38 @@
+{% extends "./base.html"  %}
+
+{% block title %}
+	Escape Note - 最新評價
+{% endblock %} 
+
+{% block navbar %}
+	<li class="active"><a href="{{ url_for('latest') }}">最新評價</a></li>
+    <li><a href="{{ url_for('studio') }}">工作室列表</a></li>
+{% endblock %} 
+
+{% block page_content %}
+	<table class="table">
+		<thead>
+			<tr>
+				<td>標題</td>
+				<td>遊戲名稱</td>
+				<td>評價</td>
+				<td>作者</td>
+				<td>更新時間</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for article in articleList %}
+				<tr>
+					<td><a href="/article/{{article['id']}}">{{article["title"]}}</a></td>
+					<td>{{article["project"]}}</td>
+					<td>{{article["rating"]}}</td>
+					<td>{{article["author"]}}</td>
+					<td>{{article["update_time"]}}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	
+
+	</table>
+
+{% endblock %}a

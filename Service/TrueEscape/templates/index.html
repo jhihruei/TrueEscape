@@ -1,0 +1,15 @@
+{% extends "./base.html"  %}
+
+{% block title %}Escape Note{% endblock %}
+
+{% block navbar %} 
+	<li class="active"><a href="{{ url_for('latest') }}">最新評價</a></li>
+    <li><a href="{{ url_for('studio') }}">工作室資訊</a></li>
+
+
+{% endblock %}
+
+
+{% block page_content %}
+	<a href="{{ url_for('login') }}"> hello world </a>
+{% endblock %}

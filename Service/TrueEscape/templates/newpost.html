@@ -1,0 +1,71 @@
+{% extends "./base.html"  %}
+
+{% block title %}Escape Note{% endblock %}
+
+{% block navbar %} 
+    <li><a href="{{ url_for('latest') }}">最新評價</a></li>
+    <li><a href="{{ url_for('studio') }}">工作室資訊</a></li>
+{% endblock %}
+
+
+{% block page_content %}
+  <form action="{{ url_for('newpost') }}" method=post>
+    <div class="form-group">
+      <label for="title">標題：</label>
+      <input type="text" class="form-control" id="title" name="title">
+    </div>
+    <div class="form-group">
+      <label for="project">遊戲名稱：</label>
+      <select class="form-control" id="project" name="project_id">
+      <option value="1495134181">test </option>
+      </select>
+    <div class="form-group">
+      <label for="stars">整體評價：</label>
+      <select class="form-control" id="stars" name="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option selected="selected" value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <label for="cm1">劇情：</label>
+        <select class="form-control" id="cm1" name="cm1">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option selected="selected" value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="col-xs-4">
+        <label for="cm2">場景：</label>
+        <select class="form-control" id="cm2" name="cm2">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option selected="selected" value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="col-xs-4">  
+        <label for="cm3">機關：</label>
+        <select class="form-control" id="cm3" name="cm3">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option selected="selected" value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <label for="content">遊戲體驗：</label>
+      <textarea class="form-control" rows="6" id="content" name="content"></textarea>
+    </div>
+    <br>
+    <input type="submit" value="送出">
+  </form>
+{% endblock %}
